@@ -27,14 +27,13 @@ class Form extends Component {
                 //Login was not successful, let's create a new account
                       
                         this.setState({ error: 'Authentication failed.', loading: false,next:false });
+                        
                     
             });
         }else{
             this.setState({ error: 'try_agian', loading: false });
         }
-       if(this.next==true){
-        
-       }
+      
         
     }
     renderButtonOrSpinner() {

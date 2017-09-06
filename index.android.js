@@ -30,6 +30,7 @@ export default class db01 extends Component {
   componentDidMount() {
     this.ref = firebase.database().ref('king');
     this.ref.on('value', this.handlePostUpdate);
+    
   }
 
   // On unmount, ensure we no longer listen for updates
@@ -44,7 +45,10 @@ export default class db01 extends Component {
     console.log('Post Content', snapshot.val());
     console.log('Post Malone');
     this.ss=snapshot.val();
-    console.log('sssssddddd',this.ss);
+    firebase.messaging().getToken()
+    .then((token) => {
+    console.log('Device FCM Token: ', token);
+});
   }
 
   render() {
